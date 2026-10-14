@@ -1,8 +1,10 @@
 # ⚡ ELECTROBOX — Tarjeta de Presentación Digital Ejecutiva
 
-Landing page oficial de tarjeta de presentación digital corporativa diseñada para el **Gerente General / CEO de ELECTROBOX**, concebida especialmente para su uso en misiones comerciales internacionales y viajes de negocios a **China**.
+Landing page oficial de tarjeta de presentación digital corporativa diseñada para **JEAN CARLOS OMAÑA MORENO**, **Gerente General / CEO de ELECTROBOX**, concebida especialmente para su uso en misiones comerciales internacionales y viajes de negocios a **China**.
 
 El sitio está optimizado para dispositivos móviles (**Mobile First**), pensado para ser abierto instantáneamente al escanear un código QR impreso en una tarjeta física corporativa.
+
+> **Idioma Predeterminado:** La página abre por defecto en **Chino Simplificado (中文)** para brindar una experiencia inmediata y localizada a contrapartes y socios comerciales en China, permitiendo cambiar en cualquier momento a **Español (ES)** o **Inglés (EN)** mediante el selector superior.
 
 ---
 
@@ -18,7 +20,7 @@ landing_page_ceo/
 ├── README.md            # Documentación completa de configuración y despliegue
 │
 ├── img/                 # Recursos gráficos oficiales de alta resolución
-│   ├── img_foto_ceo.webp            # Fotografía oficial del Gerente General / CEO
+│   ├── img_foto_ceo.webp            # Fotografía oficial de JEAN CARLOS OMAÑA MORENO
 │   ├── logo_electrobox2_verde.webp  # Logo oficial horizontal con acento verde
 │   ├── logo_electrobox2_blanco.webp # Logo oficial horizontal en blanco puro
 │   ├── logo_electrobox_brocha.webp  # Logo oficial con textura de brocha verde
@@ -36,7 +38,7 @@ landing_page_ceo/
   * Acento Oficial: **Verde ELECTROBOX** (`#64FF01`) utilizado estratégicamente en anillos, bordes y botones clave.
   * Tipografía y Detalles: Blanco puro (`#ffffff`) y tonos plata/grafito de alta legibilidad.
 * **Tecnología:** HTML5 + CSS3 + Vanilla JavaScript (100% libre de frameworks pesados o dependencias externas que puedan fallar en China).
-* **Multi-idioma:** Español (`ES`), Inglés (`EN`) y Chino Simplificado (`中文`) sin recarga de página y persistente en `localStorage`.
+* **Multi-idioma:** Chino Simplificado (`中文`, predeterminado), Español (`ES`) e Inglés (`EN`) sin recarga de página y persistente en `localStorage`.
 
 ---
 
@@ -53,16 +55,13 @@ landing_page_ceo/
 
 ---
 
-## ⚙️ Cómo Modificar los Datos del Gerente
+## ⚙️ Datos del Gerente General / CEO
 
-Toda la información del ejecutivo se gestiona de forma centralizada en un solo archivo: [`script.js`](file:///d:/Pictures/FRANCISCO/ELECTROBOX/Repositorios/landing_page_ceo/script.js).
-
-Abre `script.js` y localiza el bloque superior `CONFIG`:
+Toda la información del ejecutivo se gestiona de forma centralizada en [`script.js`](file:///d:/Pictures/FRANCISCO/ELECTROBOX/Repositorios/landing_page_ceo/script.js):
 
 ```javascript
 const CONFIG = {
-  // Reemplaza por el nombre real del Gerente
-  name: "NOMBRE_COMPLETO", 
+  name: "JEAN CARLOS OMAÑA MORENO", 
 
   title: {
     es: "Gerente General / CEO",
@@ -75,7 +74,6 @@ const CONFIG = {
   phoneRaw: "573114445868",
   email: "Comercializadorajk.contabilidad@gmail.com",
 
-  // Redes Sociales Oficiales
   social: {
     tiktok: "https://www.tiktok.com/@electrobox.cucuta",
     facebook: "https://www.facebook.com/Electrobox.Cucuta",
@@ -105,7 +103,7 @@ Abre la terminal en la carpeta del proyecto y ejecuta:
 
 ```bash
 git add .
-git commit -m "fix: posicionamiento de botones de contacto, redes sociales e imagenes reales"
+git commit -m "feat: nombre del CEO Jean Carlos Omaña Moreno e idioma chino por defecto"
 git push origin main
 ```
 

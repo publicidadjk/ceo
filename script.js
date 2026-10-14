@@ -7,7 +7,7 @@
 
 const CONFIG = {
   // --- DATOS PERSONALES DEL GERENTE ---
-  name: "NOMBRE_COMPLETO", // Reemplaza aquí por el nombre y apellido oficial
+  name: "JEAN CARLOS OMAÑA MORENO",
   
   // Cargo en los 3 idiomas requeridos
   title: {
@@ -128,8 +128,8 @@ const TRANSLATIONS = {
   }
 };
 
-// Estado global de la aplicación
-let currentLanguage = "es";
+// Estado global: idioma por defecto Chino Simplificado ("zh")
+let currentLanguage = "zh";
 
 /**
  * Inicialización al cargar el DOM
@@ -141,21 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Detectar y aplicar idioma inicial (localStorage > Navegador > Español por defecto)
+ * Detectar y aplicar idioma inicial:
+ * Prioridad: preferencia guardada en localStorage > Chino Simplificado por defecto
  */
 function initLanguage() {
   const savedLang = localStorage.getItem("electrobox_lang");
   if (savedLang && ["es", "en", "zh"].includes(savedLang)) {
     currentLanguage = savedLang;
   } else {
-    const browserLang = (navigator.language || navigator.userLanguage || "es").toLowerCase();
-    if (browserLang.startsWith("zh")) {
-      currentLanguage = "zh";
-    } else if (browserLang.startsWith("en")) {
-      currentLanguage = "en";
-    } else {
-      currentLanguage = "es";
-    }
+    // Idioma por defecto al abrir la página: Chino Simplificado
+    currentLanguage = "zh";
   }
   setLanguage(currentLanguage, false);
 }
@@ -297,7 +292,7 @@ function handleDownloadVCard(e) {
     "BEGIN:VCARD",
     "VERSION:3.0",
     `FN:${CONFIG.name}`,
-    `N:;${CONFIG.name};;;`,
+    `N:OMAÑA MORENO;JEAN CARLOS;;;`,
     `ORG:${CONFIG.company}`,
     `TITLE:${titleString}`,
     `TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+${CONFIG.phoneRaw}`,
@@ -305,7 +300,7 @@ function handleDownloadVCard(e) {
     `EMAIL;TYPE=WORK,INTERNET:${CONFIG.email}`,
     `ADR;TYPE=WORK:;;${locationString}`,
     `X-SOCIALPROFILE;TYPE=wechat:${CONFIG.wechatId}`,
-    `NOTE:${CONFIG.company} - Soluciones integrales para el hogar. WeChat ID: ${CONFIG.wechatId}`,
+    `NOTE:${CONFIG.company} - ${CONFIG.name} (${titleString}). WeChat ID: ${CONFIG.wechatId}`,
     "END:VCARD"
   ].join("\r\n");
 

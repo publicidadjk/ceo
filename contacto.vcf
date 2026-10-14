@@ -1,14 +1,14 @@
 BEGIN:VCARD
 VERSION:3.0
-N:;NOMBRE_COMPLETO;;;
-FN:NOMBRE_COMPLETO
+N:OMAÑA MORENO;JEAN CARLOS;;;
+FN:JEAN CARLOS OMAÑA MORENO
 ORG:ELECTROBOX
-TITLE:Gerente General / CEO
+TITLE:Gerente General / CEO / 总经理
 ROLE:General Manager
 TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+573114445868
 TEL;TYPE=WORK,VOICE:+57 311 4445868
 EMAIL;TYPE=WORK,INTERNET:Comercializadorajk.contabilidad@gmail.com
 ADR;TYPE=WORK:;;Cúcuta;Norte de Santander;;Colombia
 X-SOCIALPROFILE;TYPE=wechat:electrobox_col
-NOTE:ELECTROBOX - Electrodomésticos, tecnología, línea blanca y soluciones para el hogar. WeChat ID: electrobox_col
+NOTE:ELECTROBOX - JEAN CARLOS OMAÑA MORENO (Gerente General / CEO / 总经理). WeChat ID: electrobox_col
 END:VCARD
