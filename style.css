@@ -903,13 +903,15 @@ body {
   gap: 12px;
 }
 
-/* Imagen Oficial del Logo Brocha */
+/* Imagen Oficial del Logo Brocha y Eslogan */
 .slogan-wrapper {
-  max-width: 240px;
+  max-width: 250px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
 .slogan-img {
@@ -918,6 +920,16 @@ body {
   max-height: 75px;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(100, 255, 1, 0.15));
+}
+
+.slogan-text-img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  max-height: 42px;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
 }
 
 .footer-location-text {
