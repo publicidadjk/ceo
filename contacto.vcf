@@ -8,7 +8,6 @@ ROLE:General Manager
 TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+573114445868
 TEL;TYPE=WORK,VOICE:+57 311 4445868
 EMAIL;TYPE=WORK,INTERNET:Comercializadorajk.contabilidad@gmail.com
-URL;TYPE=WORK:https://electrobox.com.co
 ADR;TYPE=WORK:;;Cúcuta;Norte de Santander;;Colombia
 X-SOCIALPROFILE;TYPE=wechat:electrobox_col
 NOTE:ELECTROBOX - Electrodomésticos, tecnología, línea blanca y soluciones para el hogar. WeChat ID: electrobox_col

@@ -14,7 +14,7 @@
   <meta property="og:type" content="profile">
   <meta property="og:title" content="NOMBRE_COMPLETO — Gerente General / CEO | ELECTROBOX">
   <meta property="og:description" content="Tarjeta digital corporativa de ELECTROBOX. Guardar contacto VCF, WhatsApp, correo y WeChat ID: electrobox_col.">
-  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:image" content="img/logo_electrobox2_verde.webp">
   <meta property="og:site_name" content="ELECTROBOX">
 
   <!-- Favicon SVG dinámico y de alta fidelidad -->
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-  <!-- Contenedor de la Tarjeta Ejecutiva -->
+  <!-- Contenedor Principal: Tarjeta Ejecutiva -->
   <main class="executive-card-container" id="card-container">
     
     <!-- Barra Superior: Indicador Oficial y Selector de Idioma -->
@@ -49,11 +49,11 @@
       <!-- Logo Oficial de ELECTROBOX -->
       <div class="brand-logo-wrapper">
         <img 
-          src="assets/logo.png" 
+          src="img/logo_electrobox2_verde.webp" 
           alt="ELECTROBOX Logo Oficial" 
           class="brand-logo" 
           width="210" 
-          height="52"
+          height="48"
           loading="eager"
         >
       </div>
@@ -62,7 +62,7 @@
       <div class="profile-avatar-wrapper">
         <div class="profile-avatar-ring">
           <img 
-            src="assets/profile.jpg" 
+            src="img/img_foto_ceo.webp" 
             alt="Foto Profesional del Gerente General" 
             class="profile-img" 
             width="132" 
@@ -82,9 +82,16 @@
       <p id="manager-title" class="manager-title" data-i18n="title">Gerente General / CEO</p>
       <span class="manager-company-badge">ELECTROBOX • COLOMBIA</span>
 
-      <!-- Ubicación -->
-      <div id="manager-location" class="manager-location" data-i18n="location">
-        🇨🇴 Cúcuta · Norte de Santander · Colombia
+      <!-- Ubicación con Bandera Vectorial de Colombia -->
+      <div id="manager-location" class="manager-location">
+        <span class="location-flag" title="Colombia" aria-hidden="true">
+          <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
+            <rect width="18" height="6.5" fill="#FCD116"/>
+            <rect y="6.5" width="18" height="3.25" fill="#003893"/>
+            <rect y="9.75" width="18" height="3.25" fill="#CE1126"/>
+          </svg>
+        </span>
+        <span data-i18n="location">Cúcuta · Norte de Santander · Colombia</span>
       </div>
     </section>
 
@@ -106,11 +113,11 @@
       </button>
     </section>
 
-    <!-- Grilla de Acciones Rápidas (Llamar, WhatsApp, Email, Sitio Web) -->
-    <nav class="quick-actions-grid" aria-label="Enlaces de contacto rápido">
+    <!-- Lista de Contacto Directo: LLAMAR, WHATSAPP, CORREO -->
+    <nav class="quick-actions-list" aria-label="Enlaces de contacto directo">
       
       <!-- 📞 Llamada Telefónica Directa -->
-      <a id="action-call" href="tel:+573114445868" class="action-tile" aria-label="Llamar por teléfono">
+      <a id="action-call" href="tel:+573114445868" class="action-tile tile-call" aria-label="Llamar por teléfono">
         <div class="action-tile-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -119,6 +126,11 @@
         <div class="action-tile-content">
           <span class="action-tile-label" data-i18n="callLabel">Llamar</span>
           <span class="action-tile-value">+57 311 4445868</span>
+        </div>
+        <div class="action-tile-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </div>
       </a>
 
@@ -133,10 +145,15 @@
           <span class="action-tile-label" data-i18n="whatsappLabel">WhatsApp</span>
           <span class="action-tile-value">+57 311 4445868</span>
         </div>
+        <div class="action-tile-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
       </a>
 
       <!-- ✉️ Correo Electrónico Corporativo -->
-      <a id="action-email" href="mailto:Comercializadorajk.contabilidad@gmail.com" class="action-tile" aria-label="Enviar correo electrónico">
+      <a id="action-email" href="mailto:Comercializadorajk.contabilidad@gmail.com" class="action-tile tile-email" aria-label="Enviar correo electrónico">
         <div class="action-tile-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -147,20 +164,10 @@
           <span class="action-tile-label" data-i18n="emailLabel">Correo</span>
           <span class="action-tile-value">Comercializadorajk.contabilidad@gmail.com</span>
         </div>
-      </a>
-
-      <!-- 🌐 Sitio Web Corporativo -->
-      <a id="action-web" href="https://electrobox.com.co" target="_blank" rel="noopener noreferrer" class="action-tile" aria-label="Visitar sitio web oficial">
-        <div class="action-tile-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <div class="action-tile-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
-        </div>
-        <div class="action-tile-content">
-          <span class="action-tile-label" data-i18n="websiteLabel">Sitio Web</span>
-          <span class="action-tile-value">electrobox.com.co</span>
         </div>
       </a>
 
@@ -185,11 +192,11 @@
 
       <p class="wechat-subtitle" data-i18n="wechatSubtitle">Conéctate conmigo en WeChat</p>
 
-      <!-- Tarjeta del Código QR de WeChat -->
+      <!-- Tarjeta del Código QR de WeChat Oficial -->
       <div class="wechat-qr-card">
         <div class="qr-frame">
           <img 
-            src="assets/wechat-qr.png" 
+            src="img/qr_wechat.webp" 
             alt="Código QR de WeChat" 
             class="qr-image" 
             width="190" 
@@ -214,7 +221,7 @@
         </div>
       </div>
 
-      <!-- Botón para Intentar Abrir la App WeChat -->
+      <!-- Botón para Abrir la App WeChat -->
       <a id="btn-open-wechat" href="weixin://dl/chat?electrobox_col" class="btn-open-wechat" aria-label="Abrir aplicación de WeChat">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M8.5 2C4.36 2 1 4.91 1 8.5c0 2.01 1.05 3.81 2.7 5.02L3 17l3.8-1.9c.53.13 1.1.2 1.7.2 4.14 0 7.5-2.91 7.5-6.5S12.64 2 8.5 2zm-2.25 5a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm4.5 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM16 9c-.27 0-.53.02-.8.05C15.7 10.05 16 11.23 16 12.5c0 4.14-3.81 7.5-8.5 7.5-.54 0-1.07-.05-1.58-.14L2 22l3.43-1.72C6.91 20.76 8.38 21.2 10 21.2c4.97 0 9-3.4 9-7.6 0-2.54-1.5-4.8-3.8-6.1.5-.9 1.8-1.5 3.3-1.5h-.5zM13 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
@@ -243,30 +250,96 @@
       </p>
     </section>
 
-    <!-- Footer Institucional con Logo y Eslogan Oficial -->
+    <!-- ====================================================================
+         SECCIÓN REDES SOCIALES: TIKTOK, FACEBOOK, INSTAGRAM
+         ==================================================================== -->
+    <section class="social-section" aria-labelledby="social-heading">
+      <div class="social-header">
+        <div class="social-header-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </div>
+        <div>
+          <h2 id="social-heading" class="social-title" data-i18n="socialTitle">Redes Sociales</h2>
+          <p class="social-subtitle" data-i18n="socialSubtitle">Conéctate y sigue a ELECTROBOX</p>
+        </div>
+      </div>
+
+      <div class="social-buttons-grid">
+        <!-- TIKTOK -->
+        <a 
+          href="https://www.tiktok.com/@electrobox.cucuta" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="social-tile tile-tiktok" 
+          aria-label="Seguir en TikTok @electrobox.cucuta"
+        >
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.35 0 .69.06 1 .17V9.45a6.37 6.37 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.71a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.7a8.28 8.28 0 0 0 4.91 1.6V6.85a4.85 4.85 0 0 1-1-.16z"/>
+            </svg>
+          </div>
+          <span class="social-tile-name">TikTok</span>
+          <span class="social-tile-handle">@electrobox.cucuta</span>
+        </a>
+
+        <!-- FACEBOOK -->
+        <a 
+          href="https://www.facebook.com/Electrobox.Cucuta" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="social-tile tile-facebook" 
+          aria-label="Seguir en Facebook Electrobox.Cucuta"
+        >
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </div>
+          <span class="social-tile-name">Facebook</span>
+          <span class="social-tile-handle">Electrobox.Cucuta</span>
+        </a>
+
+        <!-- INSTAGRAM -->
+        <a 
+          href="https://www.instagram.com/electrobox.cucuta/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="social-tile tile-instagram" 
+          aria-label="Seguir en Instagram @electrobox.cucuta"
+        >
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <span class="social-tile-name">Instagram</span>
+          <span class="social-tile-handle">@electrobox.cucuta</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Institucional con Logo Brocha Oficial -->
     <footer class="card-footer">
       
-      <!-- Imagen Oficial del Eslogan Proporcionada por el Cliente -->
+      <!-- Logo Brocha Oficial de ELECTROBOX -->
       <div class="slogan-wrapper">
         <img 
-          src="assets/slogan.png" 
-          alt="ELECTROBOX... Renueva tu hogar" 
+          src="img/logo_electrobox_brocha.webp" 
+          alt="ELECTROBOX Oficial" 
           class="slogan-img" 
-          width="280" 
-          height="44"
+          width="260" 
+          height="80"
           loading="lazy"
         >
       </div>
-
-      <!-- Logo Oficial de Respaldo -->
-      <img 
-        src="assets/logo.png" 
-        alt="ELECTROBOX" 
-        class="footer-brand-logo" 
-        width="140" 
-        height="32"
-        loading="lazy"
-      >
 
       <p class="footer-location-text">
         Cúcuta · Norte de Santander · Colombia

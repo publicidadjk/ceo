@@ -8,9 +8,9 @@
   /* Paleta Oficial */
   --bg-primary: #07080a;
   --bg-card: #0f1218;
-  --bg-card-glass: rgba(15, 18, 24, 0.85);
-  --bg-card-subtle: #151922;
-  --bg-card-hover: #1b202c;
+  --bg-card-glass: rgba(15, 18, 24, 0.88);
+  --bg-card-subtle: #141822;
+  --bg-card-hover: #1c2230;
   
   --accent-color: #64FF01;
   --accent-rgb: 100, 255, 1;
@@ -187,18 +187,18 @@ body {
 
 /* Contenedor del Logo de la Empresa */
 .brand-logo-wrapper {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 210px;
+  max-width: 220px;
   width: 100%;
 }
 
 .brand-logo {
   max-width: 100%;
   height: auto;
-  max-height: 52px;
+  max-height: 48px;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
   transition: transform 0.3s ease;
@@ -211,8 +211,8 @@ body {
 /* Foto del Gerente con Anillo Ejecutivo */
 .profile-avatar-wrapper {
   position: relative;
-  width: 132px;
-  height: 132px;
+  width: 136px;
+  height: 136px;
   margin-bottom: 18px;
 }
 
@@ -221,7 +221,7 @@ body {
   height: 100%;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(135deg, var(--accent-color), rgba(255,255,255,0.1) 40%, var(--accent-color));
+  background: linear-gradient(135deg, var(--accent-color), rgba(255,255,255,0.15) 45%, var(--accent-color));
   box-shadow: var(--shadow-glow);
   display: flex;
   align-items: center;
@@ -233,6 +233,7 @@ body {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 15%;
   background-color: var(--bg-card-subtle);
   display: block;
 }
@@ -295,10 +296,22 @@ body {
 .manager-location {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 7px;
   font-size: 0.82rem;
   color: var(--text-muted);
   font-weight: 400;
+}
+
+.location-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.location-flag svg {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Botón Principal Destacado: Guardar Contacto (VCF) */
@@ -367,10 +380,16 @@ body {
   flex-shrink: 0;
 }
 
-/* Grilla de Contacto Rápido (Llamar, WhatsApp, Email, Web) */
-.quick-actions-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* ==========================================================================
+   LISTA DE CONTACTO DIRECTO (Llamar, WhatsApp, Correo)
+   Formato Vertical de Filas Ejecutivas:
+   - Evita desbordamiento horizontal.
+   - El correo largo cuenta con ancho completo garantizado.
+   - Área táctil amplia y cómoda para dedos.
+   ========================================================================== */
+.quick-actions-list {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
   padding: 0 20px 20px 20px;
 }
@@ -378,22 +397,24 @@ body {
 .action-tile {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
+  gap: 14px;
+  padding: 12px 16px;
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--text-primary);
   transition: var(--transition);
-  min-height: 54px;
+  min-height: 58px;
+  position: relative;
+  overflow: hidden;
 }
 
 .action-tile:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .action-tile:active {
@@ -401,9 +422,9 @@ body {
 }
 
 .action-tile-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
@@ -413,8 +434,8 @@ body {
 }
 
 .action-tile-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   color: var(--accent-color);
 }
 
@@ -422,27 +443,53 @@ body {
   color: var(--whatsapp-color);
 }
 
+.action-tile.tile-email .action-tile-icon svg {
+  color: #60a5fa;
+}
+
 .action-tile-content {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  min-width: 0; /* Imprescindible para evitar desbordes en Flexbox */
+  flex: 1;
 }
 
 .action-tile-label {
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  margin-bottom: 1px;
 }
 
 .action-tile-value {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.action-tile.tile-email .action-tile-value {
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+}
+
+.action-tile-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.action-tile:hover .action-tile-arrow {
+  transform: translateX(3px);
+  color: var(--accent-color);
 }
 
 /* ==========================================================================
@@ -547,6 +594,7 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+  border-radius: 4px;
 }
 
 /* Decoraciones de esquina estilo visor de escaneo */
@@ -707,22 +755,157 @@ body {
 }
 
 /* ==========================================================================
+   SECCIÓN REDES SOCIALES (TIKTOK, FACEBOOK, INSTAGRAM)
+   ========================================================================== */
+.social-section {
+  margin: 0 20px 20px 20px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+.social-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.social-header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(100, 255, 1, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-header-icon svg {
+  width: 17px;
+  height: 17px;
+  color: var(--accent-color);
+}
+
+.social-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.social-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.social-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.social-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.social-tile:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.social-tile.tile-tiktok:hover {
+  border-color: rgba(254, 44, 85, 0.5);
+  box-shadow: 0 4px 16px rgba(254, 44, 85, 0.2);
+}
+
+.social-tile.tile-facebook:hover {
+  border-color: rgba(24, 119, 242, 0.5);
+  box-shadow: 0 4px 16px rgba(24, 119, 242, 0.2);
+}
+
+.social-tile.tile-instagram:hover {
+  border-color: rgba(225, 48, 108, 0.5);
+  box-shadow: 0 4px 16px rgba(225, 48, 108, 0.2);
+}
+
+.social-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.social-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-tile.tile-tiktok .social-icon-wrapper {
+  color: #ffffff;
+}
+
+.social-tile.tile-facebook .social-icon-wrapper {
+  color: #1877f2;
+}
+
+.social-tile.tile-instagram .social-icon-wrapper {
+  color: #e1306c;
+}
+
+.social-tile-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.social-tile-handle {
+  font-size: 0.64rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ==========================================================================
    FOOTER INSTITUCIONAL / SELLO DE MARCA
    ========================================================================== */
 .card-footer {
   padding: 22px 20px 24px 20px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* Imagen Oficial del Eslogan */
+/* Imagen Oficial del Logo Brocha */
 .slogan-wrapper {
-  max-width: 280px;
+  max-width: 240px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -732,17 +915,9 @@ body {
 .slogan-img {
   max-width: 100%;
   height: auto;
-  max-height: 44px;
+  max-height: 75px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
-}
-
-.footer-brand-logo {
-  max-width: 140px;
-  height: auto;
-  max-height: 32px;
-  object-fit: contain;
-  opacity: 0.85;
+  filter: drop-shadow(0 4px 12px rgba(100, 255, 1, 0.15));
 }
 
 .footer-location-text {
@@ -807,10 +982,6 @@ body {
     padding: 8px 6px 20px 6px;
   }
   
-  .quick-actions-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .manager-name {
     font-size: 1.3rem;
   }
@@ -823,6 +994,19 @@ body {
   .qr-frame {
     width: 160px;
     height: 160px;
+  }
+
+  .action-tile {
+    padding: 10px 12px;
+  }
+
+  .action-tile-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .action-tile.tile-email .action-tile-value {
+    font-size: 0.74rem;
   }
 }
 

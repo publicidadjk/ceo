@@ -11,17 +11,20 @@ El sitio está optimizado para dispositivos móviles (**Mobile First**), pensado
 ```text
 landing_page_ceo/
 │
-├── index.html           # Estructura semántica, meta tags SEO/OpenGraph y accesibilidad
+├── index.html           # Estructura semántica, accesibilidad y meta tags SEO/OpenGraph
 ├── style.css            # Diseño visual (Dark Obsidian, acentos #64FF01, Glassmorphism)
 ├── script.js            # Configuración centralizada del gerente y traducción dinámica (ES/EN/ZH)
 ├── contacto.vcf         # Archivo vCard 3.0 para guardar contacto en iPhone y Android
 ├── README.md            # Documentación completa de configuración y despliegue
 │
-└── assets/              # Carpeta de recursos gráficos
-    ├── logo.png         # Logo oficial de ELECTROBOX
-    ├── slogan.png       # Imagen oficial del eslogan de la empresa
-    ├── profile.jpg      # Fotografía profesional del Gerente General
-    └── wechat-qr.png    # Código QR oficial del perfil de WeChat
+├── img/                 # Recursos gráficos oficiales de alta resolución
+│   ├── img_foto_ceo.webp            # Fotografía oficial del Gerente General / CEO
+│   ├── logo_electrobox2_verde.webp  # Logo oficial horizontal con acento verde
+│   ├── logo_electrobox2_blanco.webp # Logo oficial horizontal en blanco puro
+│   ├── logo_electrobox_brocha.webp  # Logo oficial con textura de brocha verde
+│   └── qr_wechat.webp               # Código QR oficial del perfil de WeChat
+│
+└── assets/              # Copia de respaldo de recursos gráficos
 ```
 
 ---
@@ -37,18 +40,16 @@ landing_page_ceo/
 
 ---
 
-## 🖼️ Dónde Colocar y Cómo Reemplazar las Imágenes
+## 📞 Canales de Contacto Directo
 
-Para sustituir los archivos por tus imágenes oficiales de alta resolución, guárdalas dentro de la carpeta `assets/` manteniendo exactamente estos nombres:
-
-| Archivo | Ubicación exacta | Descripción y Recomendación |
-| :--- | :--- | :--- |
-| **`logo.png`** | `assets/logo.png` | **Logo oficial de ELECTROBOX**. Formato PNG con fondo transparente o fondo oscuro. Se recomienda proporción horizontal (aprox. 800×220 px). |
-| **`slogan.png`** | `assets/slogan.png` | **Imagen oficial del eslogan** (*"ELECTROBOX... RENUEVA TU HOGAR."*). PNG con fondo transparente para el pie de la tarjeta (aprox. 800×180 px). |
-| **`profile.jpg`** | `assets/profile.jpg` | **Fotografía profesional del Gerente**. Formato JPG/PNG cuadrado (1:1, ej. 600×600 px o superior). |
-| **`wechat-qr.png`** | `assets/wechat-qr.png` | **Código QR de WeChat**. Exportado directamente desde la app WeChat (*Yo > Mi perfil de QR / My QR Code*). Formato PNG cuadrado (mínimo 600×600 px). |
-
-> **Nota:** La plantilla ya incluye imágenes provisionales de alta calidad para pruebas. Al copiar tus imágenes oficiales sobreescribiendo estos nombres, la página se actualizará automáticamente.
+1. **Llamar:** Enlace directo `tel:+573114445868`.
+2. **WhatsApp:** Enlace directo oficial `https://wa.me/573114445868`.
+3. **Correo Electrónico:** Enlace `mailto:Comercializadorajk.contabilidad@gmail.com`.
+4. **WeChat (微信):** Sección especial para China con QR oficial, ID `electrobox_col`, botón de copia rápida y enlace `weixin://`.
+5. **Redes Sociales Oficiales:**
+   * **TikTok:** [https://www.tiktok.com/@electrobox.cucuta](https://www.tiktok.com/@electrobox.cucuta)
+   * **Facebook:** [https://www.facebook.com/Electrobox.Cucuta](https://www.facebook.com/Electrobox.Cucuta)
+   * **Instagram:** [https://www.instagram.com/electrobox.cucuta/](https://www.instagram.com/electrobox.cucuta/)
 
 ---
 
@@ -62,112 +63,55 @@ Abre `script.js` y localiza el bloque superior `CONFIG`:
 const CONFIG = {
   // Reemplaza por el nombre real del Gerente
   name: "NOMBRE_COMPLETO", 
-  
+
   title: {
     es: "Gerente General / CEO",
     en: "General Manager / CEO",
     zh: "总经理 / 首席执行官"
   },
-  
+
   company: "ELECTROBOX",
-  
-  // Teléfono y WhatsApp
   phoneFormatted: "+57 311 4445868",
-  phoneRaw: "573114445868", // Sin símbolos para enlaces directos wa.me y tel:
-  
-  // Correo electrónico
+  phoneRaw: "573114445868",
   email: "Comercializadorajk.contabilidad@gmail.com",
-  
-  // Sitio web corporativo
-  website: "https://electrobox.com.co",
-  websiteDisplay: "electrobox.com.co",
-  
-  // WeChat ID para viaje a China
-  wechatId: "electrobox_col",
-  
-  location: {
-    es: "🇨🇴 Cúcuta · Norte de Santander · Colombia",
-    en: "🇨🇴 Cúcuta · Norte de Santander · Colombia",
-    zh: "🇨🇴 库库塔 · 北桑坦德省 · 哥伦比亚"
+
+  // Redes Sociales Oficiales
+  social: {
+    tiktok: "https://www.tiktok.com/@electrobox.cucuta",
+    facebook: "https://www.facebook.com/Electrobox.Cucuta",
+    instagram: "https://www.instagram.com/electrobox.cucuta/"
   },
-  
+
+  wechatId: "electrobox_col",
+
+  location: {
+    es: "Cúcuta · Norte de Santander · Colombia",
+    en: "Cúcuta · Norte de Santander · Colombia",
+    zh: "库库塔 · 北桑坦德省 · 哥伦比亚"
+  },
+
   vcfFilename: "contacto.vcf"
 };
-```
-
-Al cambiar cualquier valor en `CONFIG`, automáticamente se actualizan:
-* Los botones táctiles de **Llamar**, **WhatsApp** y **Correo**.
-* El enlace al **Sitio Web**.
-* El identificador y botón de copia rápida de **WeChat**.
-* La generación dinámica del contacto descargable (`.vcf`).
-
-### Actualizar el archivo `contacto.vcf`
-También debes actualizar las líneas correspondientes dentro de [`contacto.vcf`](file:///d:/Pictures/FRANCISCO/ELECTROBOX/Repositorios/landing_page_ceo/contacto.vcf) con el nombre real para garantizar compatibilidad con navegadores que opten por la descarga estática directa:
-
-```vcf
-BEGIN:VCARD
-VERSION:3.0
-FN:TU_NOMBRE_REAL
-TITLE:Gerente General / CEO
-ORG:ELECTROBOX
-TEL;TYPE=CELL,VOICE:+573114445868
-EMAIL;TYPE=WORK:Comercializadorajk.contabilidad@gmail.com
-URL:https://electrobox.com.co
-X-SOCIALPROFILE;TYPE=wechat:electrobox_col
-END:VCARD
 ```
 
 ---
 
 ## 🚀 Publicación en GitHub Pages
 
-Este proyecto es 100% estático (no requiere servidor Node, PHP ni base de datos). Para publicarlo en GitHub Pages:
+Para publicar o actualizar los cambios en GitHub Pages:
 
 ### 1. Subir los cambios a GitHub
 Abre la terminal en la carpeta del proyecto y ejecuta:
 
 ```bash
 git add .
-git commit -m "feat: landing page tarjeta ejecutiva electrobox"
-git push -u origin main
+git commit -m "fix: posicionamiento de botones de contacto, redes sociales e imagenes reales"
+git push origin main
 ```
 
-### 2. Activar GitHub Pages en el Repositorio
-1. Ve a tu repositorio en GitHub: `https://github.com/publicidadjk/landing_page_ceo`
-2. Haz clic en **Settings** (Configuración) > **Pages** (en el menú lateral izquierdo).
-3. En **Build and deployment > Source**, selecciona **Deploy from a branch**.
-4. En **Branch**, selecciona `main` y la carpeta `/(root)`.
-5. Haz clic en **Save** (Guardar).
-
-### 3. Obtener la URL Pública Final
-En aproximadamente 1 o 2 minutos, GitHub Pages publicará tu sitio y mostrará el enlace oficial:
+### 2. URL Pública Final
+GitHub Pages actualiza automáticamente el sitio en:
 
 ```text
 https://publicidadjk.github.io/landing_page_ceo/
 ```
-
-*(Si configuras un dominio personalizado como `contacto.electrobox.com.co`, también puedes vincularlo en esa misma sección).*
-
----
-
-## 📱 Cómo Generar el Código QR para la Tarjeta Física
-
-Una vez que tengas la URL final de GitHub Pages:
-
-1. Ingresa a una plataforma generadora de códigos QR en alta resolución para imprenta (como [QR Code Generator](https://www.qr-code-generator.com/) o directamente desde Adobe Illustrator / CorelDraw / Canva).
-2. Pega la URL completa de tu página (ejemplo: `https://publicidadjk.github.io/landing_page_ceo/`).
-3. **Recomendaciones de Impresión:**
-   * Utiliza corrección de error **Nivel H** (30%) o **Nivel Q** (25%).
-   * Tamaño físico mínimo en la tarjeta: **2.0 cm × 2.0 cm**.
-   * Asegura un contraste alto (código oscuro sobre fondo claro o código blanco sobre fondo negro mate).
-   * Puedes incluir el logo de ELECTROBOX o un icono de smartphone en el centro del QR si lo deseas.
-
----
-
-## 🇨🇳 Consideraciones Especiales para el Viaje a China
-
-1. **WeChat (微信):** WeChat es el canal primordial de comunicación y negocios en China. La tarjeta cuenta con:
-   * Exhibición destacada del **Código QR de WeChat** para ser escaneado con la cámara de WeChat.
-   * Botón táctil **"Copiar ID"** (`electrobox_col`) que permite copiar el usuario con un solo toque y pegarlo en el buscador de contactos de WeChat.
-   * Botón directo **"Abrir WeChat"** (`weixin://`).
-2. **Independencia de Redes Externas:** Todos los iconos están integrados en formato SVG vectorial interno. El sitio no depende de Google CDN ni librerías externas que puedan experimentar bloqueos por el *Great Firewall* en China.

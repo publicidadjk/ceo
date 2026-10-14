@@ -3,12 +3,6 @@
  * ELECTROBOX - TARJETA DE PRESENTACIÓN DIGITAL EJECUTIVA
  * Configuración Centralizada y Lógica Multilingüe (Vanilla JS)
  * ============================================================================
- * 
- * INSTRUCCIONES PARA MODIFICAR DATOS:
- * Para actualizar la información del Gerente / CEO, únicamente debes editar
- * los valores del objeto `CONFIG` a continuación. Todos los botones, textos,
- * enlaces de WhatsApp, teléfono, correo y el archivo VCF se sincronizarán
- * automáticamente.
  */
 
 const CONFIG = {
@@ -32,18 +26,21 @@ const CONFIG = {
   // Correo electrónico
   email: "Comercializadorajk.contabilidad@gmail.com",
   
-  // Sitio web corporativo
-  website: "https://electrobox.com.co",
-  websiteDisplay: "electrobox.com.co",
-  
+  // Redes Sociales Oficiales
+  social: {
+    tiktok: "https://www.tiktok.com/@electrobox.cucuta",
+    facebook: "https://www.facebook.com/Electrobox.Cucuta",
+    instagram: "https://www.instagram.com/electrobox.cucuta/"
+  },
+
   // WeChat ID para viaje de negocios a China
   wechatId: "electrobox_col",
   
-  // Ubicación corporativa
+  // Ubicación corporativa (la bandera de Colombia está integrada por SVG)
   location: {
-    es: "🇨🇴 Cúcuta · Norte de Santander · Colombia",
-    en: "🇨🇴 Cúcuta · Norte de Santander · Colombia",
-    zh: "🇨🇴 库库塔 · 北桑坦德省 · 哥伦比亚"
+    es: "Cúcuta · Norte de Santander · Colombia",
+    en: "Cúcuta · Norte de Santander · Colombia",
+    zh: "库库塔 · 北桑坦德省 · 哥伦比亚"
   },
   
   // Nombre del archivo de contacto descargable
@@ -64,7 +61,6 @@ const TRANSLATIONS = {
     callLabel: "Llamar",
     whatsappLabel: "WhatsApp",
     emailLabel: "Correo",
-    websiteLabel: "Sitio Web",
     wechatSectionTitle: "WeChat",
     wechatBadge: "Directo China",
     wechatSubtitle: "Conéctate conmigo en WeChat",
@@ -74,6 +70,8 @@ const TRANSLATIONS = {
     wechatFootnote: "Escanea el código QR desde la app WeChat o copia el ID para buscar en WeChat.",
     aboutTitle: "Sobre ELECTROBOX",
     aboutText: "ELECTROBOX es una empresa colombiana especializada en electrodomésticos, tecnología, línea blanca y soluciones integrales para el hogar, comprometida con la innovación, la calidad y el confort.",
+    socialTitle: "Redes Sociales",
+    socialSubtitle: "Conéctate y sigue a ELECTROBOX",
     toastCopied: "¡WeChat ID copiado al portapapeles!",
     toastSaved: "Preparando descarga de contacto...",
     copyError: "No se pudo copiar automáticamente. ID: " + CONFIG.wechatId
@@ -88,7 +86,6 @@ const TRANSLATIONS = {
     callLabel: "Call",
     whatsappLabel: "WhatsApp",
     emailLabel: "Email",
-    websiteLabel: "Website",
     wechatSectionTitle: "WeChat",
     wechatBadge: "China Direct",
     wechatSubtitle: "Connect with me on WeChat",
@@ -98,13 +95,15 @@ const TRANSLATIONS = {
     wechatFootnote: "Scan the QR code within the WeChat app or copy the ID to find me directly.",
     aboutTitle: "About ELECTROBOX",
     aboutText: "ELECTROBOX is a Colombian enterprise specializing in home appliances, consumer technology, major appliances, and modern home solutions, committed to innovation, quality, and living comfort.",
+    socialTitle: "Social Media",
+    socialSubtitle: "Connect and follow ELECTROBOX",
     toastCopied: "WeChat ID copied to clipboard!",
     toastSaved: "Preparing contact download...",
     copyError: "Could not copy automatically. ID: " + CONFIG.wechatId
   },
   zh: {
     metaTitle: `${CONFIG.name} — ${CONFIG.title.zh} | ${CONFIG.company}`,
-    metaDesc: `${CONFIG.company} ${CONFIG.title.zh} ${CONFIG.name} 的官方电子商务名片。支持一键拨号、WhatsApp、电子邮件及微信直连。`,
+    metaDesc: `${CONFIG.company} ${CONFIG.title.zh} ${CONFIG.name} 的官方商务名片。支持一键拨号、WhatsApp、电子邮件及微信直连。`,
     statusBadge: "官方电子名片",
     title: CONFIG.title.zh,
     location: CONFIG.location.zh,
@@ -112,7 +111,6 @@ const TRANSLATIONS = {
     callLabel: "拨打电话",
     whatsappLabel: "WhatsApp",
     emailLabel: "电子邮箱",
-    websiteLabel: "公司官网",
     wechatSectionTitle: "微信联系",
     wechatBadge: "中国直连",
     wechatSubtitle: "通过微信与我联系",
@@ -122,6 +120,8 @@ const TRANSLATIONS = {
     wechatFootnote: "请使用微信扫描上方二维码，或点击上方按钮复制微信号并在微信中添加。",
     aboutTitle: "关于 ELECTROBOX",
     aboutText: "ELECTROBOX是一家哥伦比亚领先企业，专注于家用电器、智能科技、白色家电及全屋家居解决方案，始终致力于品质创新与卓越客户体验。",
+    socialTitle: "社交媒体",
+    socialSubtitle: "关注 ELECTROBOX 官方社交媒体",
     toastCopied: "微信号已成功复制到剪贴板！",
     toastSaved: "正在准备下载名片文件...",
     copyError: "复制失败，微信号为：" + CONFIG.wechatId
@@ -240,18 +240,9 @@ function applyConfigToDOM() {
     if (valueEl) valueEl.textContent = CONFIG.email;
   }
 
-  // Botón Web
-  const btnWeb = document.getElementById("action-web");
-  if (btnWeb) {
-    btnWeb.href = CONFIG.website;
-    const valueEl = btnWeb.querySelector(".action-tile-value");
-    if (valueEl) valueEl.textContent = CONFIG.websiteDisplay;
-  }
-
   // Botón Open WeChat (deep link móvil)
   const btnOpenWechat = document.getElementById("btn-open-wechat");
   if (btnOpenWechat) {
-    // Protocolo estándar para invocar WeChat
     btnOpenWechat.href = `weixin://dl/chat?${CONFIG.wechatId}`;
   }
 }
@@ -283,9 +274,7 @@ function setupEventListeners() {
   // Fallback para botón Open WeChat
   const btnOpenWechat = document.getElementById("btn-open-wechat");
   if (btnOpenWechat) {
-    btnOpenWechat.addEventListener("click", (e) => {
-      // Si el navegador no puede manejar weixin:// no arrojará error crítico,
-      // pero dejamos tiempo para que el usuario sepa que puede escanear el QR
+    btnOpenWechat.addEventListener("click", () => {
       setTimeout(() => {
         showToast(TRANSLATIONS[currentLanguage].wechatFootnote);
       }, 1000);
@@ -314,7 +303,6 @@ function handleDownloadVCard(e) {
     `TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+${CONFIG.phoneRaw}`,
     `TEL;TYPE=WORK,VOICE:${CONFIG.phoneFormatted}`,
     `EMAIL;TYPE=WORK,INTERNET:${CONFIG.email}`,
-    `URL;TYPE=WORK:${CONFIG.website}`,
     `ADR;TYPE=WORK:;;${locationString}`,
     `X-SOCIALPROFILE;TYPE=wechat:${CONFIG.wechatId}`,
     `NOTE:${CONFIG.company} - Soluciones integrales para el hogar. WeChat ID: ${CONFIG.wechatId}`,
@@ -337,7 +325,6 @@ function handleDownloadVCard(e) {
     }, 250);
   } catch (err) {
     console.warn("Fallo Blob URL, recurriendo a archivo físico:", err);
-    // Fallback a enlace estático directo
     window.location.href = CONFIG.vcfFilename;
   }
 }
@@ -362,7 +349,7 @@ function handleCopyWechatId() {
 }
 
 /**
- * Fallback para navegadores antiguos o entornos sin clipboard API
+ * Fallback para portapapeles
  */
 function fallbackCopyText(text) {
   const textArea = document.createElement("textarea");
